@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -24,15 +24,13 @@ function Header() {
       <div className={cx('inner')}>
         <img src={images.logo} alt="TikTok" />
         <div>
-          <Tippy
+          <HeadlessTippy
             interactive
             visible={searchResult.length > 0}
             render={(attrs) => (
-              <PopperWrapper>
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                  Ket Qua
-                </div>
-              </PopperWrapper>
+              <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                <PopperWrapper>Ket Qua</PopperWrapper>
+              </div>
             )}
           >
             <div className={cx('search')}>
@@ -46,7 +44,7 @@ function Header() {
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </div>
-          </Tippy>
+          </HeadlessTippy>
         </div>
         <div className={cx('action')}></div>
       </div>

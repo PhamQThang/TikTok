@@ -30,6 +30,7 @@ body {
 button,
 input,
 [tabindex] {
+  outline: none;
   border: none;
 }
 
